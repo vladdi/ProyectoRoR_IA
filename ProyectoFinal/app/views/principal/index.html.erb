@@ -1,0 +1,44 @@
+<header>
+	<h1> Bienvenido</h1>
+	<h2> Estamos avanzando</h2>
+<br>
+</header>
+
+<section class="seccion_soporte">
+ 	<hr>
+ 	
+ 	<%= form_tag :action => 'index' do %>
+ 		<label for="pregunta_usuario_soporte"><h3>Solicitud Soporte</h3></label>
+ 	<%= text_field_tag 'pregunta_usuario_soporte', @name %>
+ 	<%= submit_tag 'ok' %>
+ 	<% end%>
+
+ 	<h5>Pregunta: <%= @pregunta_soporte %></h5>
+ 	<hr>
+
+</section>
+	
+<section>
+	<% if @comercial > @tecnico %>
+		<p> <%= @soporte_comercial %> </p>
+	<% else %>
+		<p> <%= @soporte_tecnico %> </p>
+	<% end %>
+
+</section> 
+
+<section class="seccion_producto">
+	<hr>
+ 	
+ 	<%= form_tag :action => 'index' do %>
+ 		<label for="pregunta_usuario_producto"><h3>Buscar Producto</h3></label>
+ 	<%= text_field_tag 'pregunta_usuario_producto', @name %>
+ 	<%= submit_tag 'ok' %>
+ 	<% end%>
+
+ 	<h5>Busqueda: <%= @pregunta_producto %></h5>
+ 	<hr>
+
+</section>
+
+<footer>Find me in app/views/principal/index.html.erb</footer>
