@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-	background-color : #006699;
+	background-color : #000;
 	color: #fff;
 	font-family: Rockwell;
 }
@@ -12,11 +12,17 @@ h1,h2 {
 }
 
 .seccion_soporte {
-	background-color : #f60;
+	background-color : #006666;
 	text-align: center;
 }
 
 .seccion_producto {
 	background-color : 	#4C0000;
 	text-align: center;
+}
+
+#respuesta_soporte{
+	color: #000;
+	background-color: #f60;
+	font-style: bold;
 }

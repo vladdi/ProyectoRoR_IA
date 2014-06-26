@@ -1,3 +1,17 @@
+	<!--<script>
+		jQuery(document).ready(function($) {
+    		$("#respuesta_soporte").hide();
+		});
+		
+		jQuery(document).ready(function($) {
+    		$( "#submit_pregunta_soporte" ).click(function() {
+			  $( "#respuesta_soporte" ).show();
+			});	
+		});
+		
+	</script>
+-->
+
 <header>
 	<h1> Bienvenido</h1>
 	<h2> Estamos avanzando</h2>
@@ -10,7 +24,7 @@
  	<%= form_tag :action => 'index' do %>
  		<label for="pregunta_usuario_soporte"><h3>Solicitud Soporte</h3></label>
  	<%= text_field_tag 'pregunta_usuario_soporte', @name %>
- 	<%= submit_tag 'ok' %>
+ 	<%= submit_tag 'Preguntar', :id=> "submit_pregunta_soporte" %>
  	<% end%>
 
  	<h5>Pregunta: <%= @pregunta_soporte %></h5>
@@ -18,27 +32,50 @@
 
 </section>
 	
-<section>
+<section id="respuesta_soporte">
 	<% if @comercial > @tecnico %>
 		<p> <%= @soporte_comercial %> </p>
-	<% else %>
+	<% elsif @tecnico > @comercial %>
 		<p> <%= @soporte_tecnico %> </p>
+	<% else %>
+		<p> <%= @soporte_tecnico %> y <%= @soporte_comercial %> </p>
 	<% end %>
 
 </section> 
 
 <section class="seccion_producto">
 	<hr>
- 	
- 	<%= form_tag :action => 'index' do %>
+ 	<section class="registrar_producto">
+ 		<h3>Registrar Productos</h3>
+ 		<%= form_for :principal do |f| %>
+ 			<p>
+ 				<%= f.label :name %><br>
+ 				<%= f.text_field :name %>
+ 			</p>
+
+ 			<p>
+ 				<%= f.label :tags_ %><br>
+ 				<%= f.text_field :tags_ %>
+ 			</p>
+
+ 			<p>
+ 				<%= f.submit %>
+ 			</p>
+ 		<% end%>
+ 	</section>
+<hr>
+ 	<section class="buscar_producto">
+ 		<%= form_tag :action => 'index' do %>
  		<label for="pregunta_usuario_producto"><h3>Buscar Producto</h3></label>
- 	<%= text_field_tag 'pregunta_usuario_producto', @name %>
- 	<%= submit_tag 'ok' %>
- 	<% end%>
+ 		<%= text_field_tag 'pregunta_usuario_producto', @name %>
 
- 	<h5>Busqueda: <%= @pregunta_producto %></h5>
+ 		<%= submit_tag 'Buscar' %>
+ 		<% end%>
+ 		
+ 		<h5>Busqueda: <%= @nombre_producto %></h5>
+ 	</section>
+ 	
  	<hr>
-
 </section>
 
 <footer>Find me in app/views/principal/index.html.erb</footer>
